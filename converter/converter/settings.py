@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'rest_framework',
+    'drf_spectacular',
 
     'rates.apps.RatesConfig',
 ]
@@ -112,6 +113,16 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# REST Framework
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema'
+}
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Конвертация валют API',
+    'DESCRIPTION': 'Сервис для конвертации суммы из одной валюты в другую по актуальному курсу.',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,  # Не включать страницу документации в саму документацию
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
